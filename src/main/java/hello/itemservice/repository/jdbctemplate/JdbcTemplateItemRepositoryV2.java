@@ -77,6 +77,8 @@ public class JdbcTemplateItemRepositoryV2 implements ItemRepository {
     }
 
     private RowMapper<Item> itemRowMapper() {
+        // BeanPropertyRowMapper는 언더스코어 표기법을 카멜로 자동 변환해준다.
+        // 컬럼 이름과 객체 이름이 완전히 다른 경우에는 조회 SQL에서 별칭을 사용해주면 된다.
         return BeanPropertyRowMapper.newInstance(Item.class);
     }
 
